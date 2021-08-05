@@ -1,0 +1,16 @@
+name: Trigger MirrorZ deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  trigger_mirrorz:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger mirrorz deploy
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.MIRRORZ_DEP_TOKEN }}
+          repository: mirrorz-org/mirrorz
+          event-type: dependency
