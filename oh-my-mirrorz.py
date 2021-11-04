@@ -10,6 +10,7 @@ import argparse
 
 VERSION = ''
 CURL_VERSION = ''
+UA_URL = ''
 
 big = {
     'centos': '/8/isos/x86_64/CentOS-8.4.2105-x86_64-dvd1.iso',
@@ -46,7 +47,7 @@ def check_curl():
 def site_info(url):
     return requests.get(url,
                         headers={
-                            'User-Agent': 'Mozilla/5.0 (compatible; OhMyMirrorz/%s; +https://mirrorz.org/about) %s' % (VERSION, requests.utils.default_user_agent())
+                            'User-Agent': 'oh-my-mirrorz/%s (+https://github.com/mirrorz-org/oh-my-mirrorz) %s %s' % (VERSION, UA_URL, requests.utils.default_user_agent())
                         }, timeout=10).json()
 
 
@@ -57,7 +58,7 @@ def speed_test(url, args):
     elif args.ipv6:
         opt += '6'
     res = subprocess.run(['curl', opt, '-o', os.devnull, '-w', '%{http_code} %{speed_download}',
-                          '-m'+str(args.time), '-A', 'Mozilla/5.0 (compatible; OhMyMirrorz/%s; +https://mirrorz.org/about) curl/%s' % (VERSION, CURL_VERSION), url], stdout=subprocess.PIPE)
+                          '-m'+str(args.time), '-A', 'oh-my-mirrorz/%s (+https://github.com/mirrorz-org/oh-my-mirrorz) %s curl/%s' % (VERSION, UA_URL, CURL_VERSION), url], stdout=subprocess.PIPE)
     code, speed = res.stdout.decode('utf-8').split()
     return int(code), float(speed)
 
