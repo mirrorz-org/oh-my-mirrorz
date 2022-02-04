@@ -13,15 +13,15 @@ CURL_VERSION = ''
 UA_URL = ''
 
 big = {
-    'centos': '/8/isos/x86_64/CentOS-8.4.2105-x86_64-dvd1.iso',
+    'centos': '/7/isos/x86_64/CentOS-7-x86_64-Everything-2009.iso',
     'centos-vault': '/6.0/isos/x86_64/CentOS-6.0-x86_64-LiveDVD.iso',
-    'opensuse': '/distribution/leap/15.3/iso/openSUSE-Leap-15.3-2-DVD-x86_64-Media.iso',
+    'opensuse': '/distribution/leap/15.4/iso/openSUSE-Leap-15.4-DVD-x86_64-Media.iso',
     'ubuntu-releases': '/20.04/ubuntu-20.04.3-desktop-amd64.iso',
-    'debian-cd': '/current/amd64/iso-bd/debian-edu-11.1.0-amd64-BD-1.iso',
-    'kali-images': '/kali-2021.2/kali-linux-2021.2-live-amd64.iso',
+    'debian-cd': '/current/amd64/iso-bd/debian-edu-11.2.0-amd64-BD-1.iso',
+    'kali-images': '/kali-2021.4/kali-linux-2021.4-live-amd64.iso',
     'CTAN': '/systems/texlive/Images/texlive2021-20210325.iso',
     'blackarch': '/iso/blackarch-linux-full-2021.09.01-x86_64.iso',
-    'archlinux': '/iso/latest/archlinux-2021.11.01-x86_64.iso',
+    'archlinux': '/iso/2022.02.01/archlinux-2022.02.01-x86_64.iso',
     'ubuntu': '/indices/md5sums.gz',
     'debian': '/ls-lR.gz',
 }
