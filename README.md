@@ -4,7 +4,7 @@ A script for speed testing for each mirrors providing mirrorz service.
 
 ## How to use
 
-Make sure you have `curl` installed. Also at least Python 3.5 is required, and `requests` package is installed.
+Make sure you have `curl` installed. Also at least Python 3.5 is required.
 
 Use
 
@@ -24,8 +24,8 @@ If you get stuck when loading meta data, you may issue `Ctrl+C` to skip one mirr
 
 ## Proxy
 
-This script sends two kinds of http request: python `requests` to get metadata and `curl` to do actual speed test.
+This script sends two kinds of http request: python `urllib.request` (built-in) to get metadata and `curl` to do actual speed test.
 
-Some sites provide their meta data (`mirrorz.json`) in a place that is hard to access, which you may use a proxy. In this case you may set `HTTP_PROXY` or `HTTPS_PROXY`, which is used by python `requests`.
+Some sites provide their meta data (`mirrorz.json`) in a place that is hard to access, which you may use a proxy. In this case you may set `HTTP_PROXY` or `HTTPS_PROXY`, which is used by python `urllib.request`.
 
-In some settings you may use a proxy to do actual downloading, in this case you may set `http_proxy` or `https_proxy`. Note that these lowercase envs are also read by python `requests`.
+In some settings you may use a proxy to do actual downloading, in this case you may set `http_proxy` or `https_proxy`. Note that these lowercase envs are also read by python `urllib.request`.

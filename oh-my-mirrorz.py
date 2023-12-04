@@ -3,8 +3,8 @@
 # vim: expandtab ts=4 sts=4 sw=4
 
 import subprocess
-import requests
-import sys
+import urllib.request
+import json
 import os
 import argparse
 
@@ -45,10 +45,14 @@ def check_curl():
         return -1
 
 def site_info(url):
-    return requests.get(url,
-                        headers={
-                            'User-Agent': 'oh-my-mirrorz/%s (+https://github.com/mirrorz-org/oh-my-mirrorz) %s %s' % (VERSION, UA_URL, requests.utils.default_user_agent())
-                        }, timeout=10).json()
+    user_agent = 'oh-my-mirrorz/%s (+https://github.com/mirrorz-org/oh-my-mirrorz) %s %s' % (VERSION, UA_URL, "urllib/" + urllib.request.__version__)
+    headers = {
+        'User-Agent': user_agent
+    }
+
+    request = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(request, timeout=10) as response:
+        return json.loads(response.read().decode('utf-8'))
 
 
 def speed_test(url, args):
